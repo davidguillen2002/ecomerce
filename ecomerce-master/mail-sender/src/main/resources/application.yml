@@ -1,0 +1,49 @@
+server:
+  port: 8081
+  #ssl:
+    #trust-store: src/main/resources/trustore.jks
+    #trust-store-password: 1234
+
+spring:
+  application:
+    name: mail-sender
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
+    sender:
+      type: web
+    service:
+      name: mail-sender
+  main:
+    allow-bean-definition-overriding: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: corazondegigante2023@gmail.com
+    password: cjoixdxgpgreilbf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl: 
+            trust: smtp.gmail.com
+            enable: false
+          socketFactory:
+            fallback: true
+  rabbitmq:
+    host: chimpanzee-01.rmq.cloudamqp.com
+    port: 5672
+    username: bpkdygih
+    password: bIfM4PaC5P6dNkh2LcUoInn2WvDA_KBX
+    virtual-host: bpkdygih
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
